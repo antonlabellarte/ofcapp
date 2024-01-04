@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -62,12 +63,27 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    protected function create()
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        return view('auth.register');
+    }
+
+    public function store(Request $request)
+    {
+        // Validation
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
         ]);
+
+        $user = new User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+
+        Auth::login($user);
+        return redirect(RouteServiceProvider::HOME);
     }
 }
