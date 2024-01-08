@@ -41,11 +41,12 @@
         </table>
         <a class="btn" style="font-size: 13px; margin-top: 20px; width: 200px;" href="{{ route('customers.create') }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/></svg> Aggiungi cliente</a>
         @else
-        <p class="text-center">Nessun dato disponibile</p>
+        <p class="text-center" style="padding: 10px; color: #0C5460; border: 1px solid #BEE5EB; background-color: #d1ecf1; border-radius: 10px;">Nessun dato disponibile</p>
     @endif
     </div>
 
     <!-- Modal -->
+    @isset($customer)
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -54,11 +55,13 @@
                     <button type="button" class="btn-klose" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/></svg></button>
                 </div>
                 <div class="modal-body">
-                    Sei sicuro di procedere con l'eliminazione?<br>
-                    <small>Il processo è irreversibile</small>
+                    <span id="firstAlert">Sei sicuro di procedere con l'eliminazione?</span><br>
+                    <div class="loader" id="secondAlert" style="display: none;"></div>
+                    <small id="thirdAlert">Il processo è irreversibile</small>
+                    <span id="fourthAlert" style="display: none; font-weight: bold; color: #155724; padding: 5px; border: 1px #c3e6cb; background-color: #d4edda; ">Eliminato!</span><br>
                 </div>
                 <div class="modal-footer">
-                    <form action="{{ route('customers.destroy', $customer->id )}}" method="POST">
+                    <form action="{{ route('customers.destroy', $customer->id )}}" method="POST" onsubmit="return spinningBeforeSubmit()">
                         @csrf
                         @method('DELETE')
                     <button type="submit" class="btn btn-danger" style="color: white">Conferma</button>
@@ -68,6 +71,7 @@
             </div>
         </div>
     </div>
+    @endisset
 
     <button class="mobileOnly" id="backToTop" style="width: 100px;" onclick="tornaSu()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/></svg> Torna su</button>
 
@@ -84,5 +88,35 @@
     -->
     <script src="{{ asset('js/script.js') }}"></script>
     
+    <style>
+        #secondAlert {
+            text-align: center;
+        }
+        button:hover {
+            box-shadow: 0 0 11px rgba(33,33,33,.2);
+        }
+
+        .loader {
+            justify-content: center;
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #172A46;
+            border-bottom: 8px solid #172A46;
+            width: 60px;
+            height: 60px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+    </style>
   </body>
 </html>

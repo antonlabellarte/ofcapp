@@ -29,3 +29,16 @@ body {
     background-color: #172A46;
     border: 1px solid gray;
 }
+
+#Btn {
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+}
+
+#Btn:hover {
+    border: 1px solid #232323;
+    background-color: white;
+    color: #232323;
+    border-radius: 5px;
+}

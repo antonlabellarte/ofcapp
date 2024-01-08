@@ -50,10 +50,14 @@
     -->
     <style>
       #mainSvg {
-            border: 2px solid #172a46;
-            padding: 10px;
-            border-radius: 10px;
-        }
+        border: 2px solid #172a46;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .card:hover {
+        box-shadow: 0 0 11px rgba(33,33,33,.2);
+      }
     </style>
   </body>
 </html>

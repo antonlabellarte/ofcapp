@@ -6,6 +6,10 @@ body {
     color: #172a46;
 }
 
+input:hover, input:focus, select:hover, button:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
 button:focus, button:active {
     outline: none !important;
     box-shadow: none;
@@ -226,6 +230,8 @@ input[type="text"]:hover, input[type="password"]:hover, input[type="text"]:focus
     }
 }
 
+/* Bottone posizionato sempre in basso a destra */
+/* che permette di tornare su */
 #backToTop { 
     position: fixed;
     bottom: 20px;

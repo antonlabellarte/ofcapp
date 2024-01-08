@@ -62,19 +62,19 @@
 </nav>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="border: 1px solid white;">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header" style="background-color: gray;">
-                <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: white;">Attenzione</h1>
+            <div class="modal-header" style="background-color: #F8F9FA;">
+                <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: black; font-weight: bold;">Attenzione</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" style="color: white; background-color: gray;">
+            <div class="modal-body" style="color: black; background-color: #F8F9FA;">
                 <p class="modalBodyContent">Sei sicuro di voler tornare all'applicazione OFC?</p>
             </div>
-            <div class="modal-footer" style="background-color: gray;">
+            <div class="modal-footer" style="background-color: #F8F9FA;">
                 <a href="/" type="a" class="btn" style="width: 100px;">Sì</a>
-                <button type="button" class="btn" style="width: 100px;" data-bs-dismiss="modal">Annulla</button>
+                <button type="button" class="btn" style="width: 100px;" data-bs-dismiss="modal">No</button>
             </div>
         </div>
     </div>
