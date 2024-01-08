@@ -51,8 +51,8 @@
     -->
     <style>
       input:hover, .card:hover, select:hover, button:hover {
-            box-shadow: 0 0 11px rgba(33,33,33,.2);
-        }
+        box-shadow: 0 0 11px rgba(33,33,33,.2);
+      }
     </style>
   </body>
 </html>

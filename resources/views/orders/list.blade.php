@@ -46,7 +46,7 @@
         </tbody>
         </table>
         @else
-        <p class="text-center">Nessun dato disponibile</p>
+        <p class="text-center" style="padding: 10px; color: #0C5460; border: 1px solid #BEE5EB; background-color: #d1ecf1; border-radius: 10px;">Nessun dato disponibile</p>
     @endif
     </div>
     <!-- Modal -->
