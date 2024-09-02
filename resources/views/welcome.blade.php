@@ -18,7 +18,7 @@
     </head>
     <body class="antialiased">
 
-    @include('partials.navbar')
+    @include('partials.navbarhome')
         <div class="container">
             <h5>Menù</h5>
             <a class="menuBtn" href="{{ route('orders.index') }}">
