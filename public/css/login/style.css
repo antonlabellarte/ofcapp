@@ -1,0 +1,52 @@
+/* Generic */
+body {
+    align-items: center;
+    text-align: left;
+}
+
+.container {
+    transition: 0.2s;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 100px;
+    border: 1px solid #e0e0e0;
+    border-radius: 35px;
+    width: fit-content;
+    padding: 20px;
+}
+
+.container:hover {
+    transition: 0.2s;
+    background-color: #f7f7f7;
+}
+
+input[type="text"], input[type="password"] {
+    border: 1px solid #172A46;
+    border-radius: 5px;
+    height: 40px;
+    width: 300px;
+    padding-left: 10px;
+}
+
+input[type="text"]:hover, input[type="password"]:hover {
+    outline: 3px solid #172A46;
+}
+
+input[type="checkbox"]:hover {
+    cursor: pointer;
+}
+
+button[style="margin-top: 10px;"] {
+    transition: 0.2s;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: white;
+    height: 35px;
+    width: 300px;
+}
+
+button:hover {
+    transition: 0.2s;
+    background-color: #172A46;
+    color: white;
+}

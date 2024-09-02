@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrdersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Login
+Route::get('/login', function () { return view('login');})->name('loginPage');
+
 // Rotta iniziale
 Route::get('/', function () {
     return view('welcome');
 });
 
-//Auth::routes();
 
+// Ordini
+Route::get('/orders/list', OrdersController::class .'@index')->name('orders.index');
+
+//Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
