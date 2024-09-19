@@ -16,7 +16,7 @@
                     <a class="nav-link text-dark" id="navBtn" style="color: black">PREVENTIVI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" id="navBtn" style="color: black">CLIENTI</a>
+                    <a href="{{ route('customers.index') }}" class="nav-link text-dark" id="navBtn" style="color: black">CLIENTI</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" id="navBtn" style="color: black">FORNITORI</a>

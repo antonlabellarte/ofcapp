@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\OrdersController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,5 +39,13 @@ Route::put('/orders/{id}', OrdersController::class . '@update')->name('orders.up
 // Elimina ordine (destroy Order)
 Route::delete('/orders/{id}/deleted', OrdersController::class . '@destroy')->name('orders.destroy');
 
+// Clienti
+Route::get('/customers/list', CustomersController::class . '@index')->name('customers.index');
+// Nuovo Cliente (Create Form)
+Route::get('/customers/create', CustomersController::class . '@create')->name('customers.create');
+// Nuovo Cliente (Inser Cliente)
+Route::post('/customers/created', CustomersController::class .' @store')->name('customers.store');
+// Elimina ordine (destroy Order)
+Route::delete('/customers/{id}/deleted', CustomersController::class . '@destroy')->name('customers.destroy');
 //Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

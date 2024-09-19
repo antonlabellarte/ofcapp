@@ -32,7 +32,7 @@
             <p id="validationAlert" style="color: #721c24; background-color: #f8d7da; border-color: #f5c6cb; border-radius: 5px;"></p>
             <hr>
             <div class="row">
-                    <form action="{{ route('orders.store') }}" method="POST" onsubmit="return validateForm()">
+                <form action="{{ route('orders.store') }}" method="POST" onsubmit="return validateForm()">
                     @csrf
                     Data ordine<br>
                     <input type="date" name="data" id="data"><br>
