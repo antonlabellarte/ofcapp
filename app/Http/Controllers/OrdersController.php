@@ -50,12 +50,13 @@ class OrdersController extends Controller
     }
 
     // Crea ordine
-    public function create(){
+    public function create(Request $request){
         // Clienti per select
         $customers = Customers::all();
-
+        
         // Fornitori per select
         $suppliers = Suppliers::all();
+
         return view('orders.add', compact('customers', 'suppliers'));
     }
     public function store(Request $request){
@@ -63,7 +64,13 @@ class OrdersController extends Controller
         $order->data = $request->input('data');
         $order->id_cliente = $request->input('cliente');
         $order->id_fornitore = $request->input('fornitore');
-        $order->agente = $request->input('agente');
+        // $order->agente = $request->input('agente');
+
+        // Ottenimento agente del Cliente corrispondente
+        $ragioneSociale = Customers::where('id', $request->input('cliente'))->value('ragione_sociale');
+        $agente = Customers::where('ragione_sociale', $ragioneSociale)->value('agente');
+
+        $order->agente = $agente;
         $order->descrizione = $request->input('descrizione');
         $order->codice_ordine = $request->input('codiceOrdine');
         $order->pagamento = $request->input('pagamento');
