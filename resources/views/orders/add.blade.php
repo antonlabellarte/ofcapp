@@ -40,7 +40,7 @@
                     <select name="cliente" id="cliente">
                         <option selected>Seleziona un cliente</option>
                         @foreach ($customers as $customer)
-                        <option value="{{ $customer->id }}">{{ $customer->ragione_sociale }} | <strong>Agente: {{ $customer->agente }}</strong></option>
+                        <option value="{{ $customer->id }}" data-agente="{{ $customer->agente }}">{{ $customer->ragione_sociale }} | Agente: {{ $customer->agente }}</option>
                         @endforeach
                     </select><br>
                     Fornitore<br>
@@ -49,13 +49,6 @@
                         @foreach ($suppliers as $supplier)
                         <option value="{{ $supplier->id }}">{{ $supplier->ditta }}</option>
                         @endforeach
-                    </select><br>
-                    Agente<br>
-                    <select name="agente" id="agente">
-                        <option selected>Seleziona un agente</option>
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="A|B">A|B</option>
                     </select><br>
                     Descrizione<br>
                     <input type="text" name="descrizione" id="descrizione"><br>
@@ -139,4 +132,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     </body>
 </html>
-
