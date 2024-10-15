@@ -36,4 +36,8 @@
         cursor: pointer;
         text-underline-offset: 3px;
     }
+
+    a {
+        font-weight: bold;
+    }
 </style>

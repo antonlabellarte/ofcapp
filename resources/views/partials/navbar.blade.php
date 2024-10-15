@@ -19,7 +19,7 @@
                     <a href="{{ route('customers.index') }}" class="nav-link text-dark" id="navBtn" style="color: black">CLIENTI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" id="navBtn" style="color: black">FORNITORI</a>
+                    <a href="{{ route('suppliers.index') }}" class="nav-link text-dark" id="navBtn" style="color: black">FORNITORI</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" id="navBtn" style="color: black">AGENTI E VISITE</a>
@@ -36,4 +36,8 @@
         cursor: pointer;
         text-underline-offset: 3px;
     }
+
+    a {
+    font-weight: bold;
+}
 </style>

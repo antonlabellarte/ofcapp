@@ -50,20 +50,44 @@ class CustomersController extends Controller
         return redirect()->route('customers.create')->with('success', 'Part update successfully');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    // Modifica cliente
+    public function edit(string $id)
     {
-        //
+        $customer = Customers::find($id);
+        return view('customers.edit', compact('customer'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    // Aggiorna cliente
     public function update(Request $request, string $id)
     {
-        //
+        $customer = Customers::find($id);
+        
+        $customer->update($request->all());
+        
+        $customer->cliente = $request->input('cliente');
+        $customer->ragione_sociale = $request->input('ragione_sociale');
+        $customer->codice_fiscale = $request->input('codfiscale');
+        $customer->indirizzo = $request->input('indirizzo');
+        $customer->citta = $request->input('città');
+        $customer->provincia = $request->input('provincia');
+        $customer->cap = $request->input('cap');
+        $customer->regione = $request->input('regione');
+        $customer->telefono = $request->input('telefono');
+        $customer->sito = $request->input('sito');
+        $customer->chiusura = $request->input('chiusura');
+        $customer->pec = $request->input('pec');
+        $customer->agente = $request->input('agente');
+        $customer->sdi = $request->input('sdi');
+        $customer->iban = $request->input('iban');
+        $customer->partitaiva = $request->input('partitaiva');
+        $customer->responsabile_scarico = $request->input('responsabilescarico');
+        $customer->indirizzo_scarico = $request->input('indirizzoscarico');
+        $customer->citta_scarico = $request->input('cittascarico');
+        $customer->telefono_responsabile_scarico = $request->input('telresponsabilescarico');
+        $customer->note = $request->input('note');
+
+        
+        return redirect()->route('customers.edit', $customer->id)->with('customerUpdated', 'Ordine modificato ed aggironato');
     }
 
     /**

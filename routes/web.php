@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\SuppliersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,7 +46,23 @@ Route::get('/customers/list', CustomersController::class . '@index')->name('cust
 Route::get('/customers/create', CustomersController::class . '@create')->name('customers.create');
 // Nuovo Cliente (Inser Cliente)
 Route::post('/customers/created', CustomersController::class .' @store')->name('customers.store');
+// Modifica ordine (edit form)
+Route::get('/customers/{id}/edit', CustomersController::class . '@edit')->name('customers.edit');
+// Aggiorna ordine (update)
+Route::put('/customers/{id}', CustomersController::class . '@update')->name('customers.update');
 // Elimina ordine (destroy Order)
 Route::delete('/customers/{id}/deleted', CustomersController::class . '@destroy')->name('customers.destroy');
 //Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Fornitori
+Route::get('/suppliers/list', SuppliersController::class . '@index')->name('suppliers.index');
+// Nuovo Fornitore (Create Form)
+Route::get('/suppliers/create', SuppliersController::class . '@create')->name('suppliers.create');
+
+
+// Modifica Fornitore (edit form)
+Route::get('/suppliers/{id}/edit', SuppliersController::class . '@edit')->name('suppliers.edit');
+// Elimina Fornitore (destroy Supplier)
+Route::delete('/suppliers/{id}/deleted', SuppliersController::class . '@destroy')->name('suppliers.destroy');

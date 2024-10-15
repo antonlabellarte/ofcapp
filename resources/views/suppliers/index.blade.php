@@ -23,16 +23,16 @@
         <div class="container" style="padding-bottom: 10px;">
             <form>
                 <p style="width: 100%; margin-top: 10px;">
-                    <span style="float: left;">Cliente</span>
+                    <span style="float: left;">Fornitore</span>
                     <span style="float: right;">
-                        <a href="{{ route('customers.index') }}"class="btn btn">
+                        <a href="{{ route('suppliers.index') }}"class="btn btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/><path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/></svg>
                             Reset filtri
                         </a>
                     </span>
                 </p><br>
 
-                <input type="text" id="findCustomer" placeholder="Cerca Cliente 🔍"><br>
+                <input type="text" id="findsupplier" placeholder="Cerca Cliente 🔍"><br>
 
                 <button type="submit" style="width: 150px; margin-top: 20px;">
                     Cerca
@@ -43,29 +43,29 @@
 
         <!-- Lista ordini -->
 
-        @if (count($customers) > 0)
+        @if (count($suppliers) > 0)
         <div class="container" style="margin-top: 40px;">
             <h5>Lista Clienti</h5><br>
-            <a href="{{ route('customers.create') }}"class="btn btn" style="width: 170px;">
+            <a href="{{ route('suppliers.create') }}"class="btn btn" style="width: 170px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/></svg>
-                Aggiungi Cliente
+                Aggiungi Fornitore
             </a>
             <hr>
-            @foreach ($customers as $customer)
+            @foreach ($suppliers as $supplier)
             
             <!-- Modal -->
-            <div class="modal fade" id="customerModal{{ $customer->id }}">
+            <div class="modal fade" id="supplierModal{{ $supplier->id }}">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="customerModalLabel">⚠ Attenzione</h1>
+                            <h1 class="modal-title fs-5" id="supplierModalLabel">⚠ Attenzione</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body" style="font-weight: bold;">
-                            Sei sicuro di voler eliminare il cliente "{{ $customer->ragione_sociale }}" ?
+                            Sei sicuro di voler eliminare il fornitore "{{ $supplier->ditta }}" ?
                         </div>
                         <div class="modal-footer">
-                            <form action="{{ route('customers.destroy', $customer->id )}}" method="POST">
+                            <form action="{{ route('suppliers.destroy', $supplier->id )}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn">Elimina</button>
@@ -78,17 +78,23 @@
 
             <div class="row">
                 <div class="col-sm">
-                <span style="background-color: #172A46; color: white; border-radius: 5px; padding: 5px;"><strong>{{ $customer->ragione_sociale }}</strong></span><br>
-                    <strong>{{ $customer->citta }}</strong><br> 
-                    <strong>{{ $customer->indirizzo }}</strong>
+                <span style="background-color: #172A46; color: white; border-radius: 5px; padding: 5px;"><strong>{{ $supplier->ditta }}</strong></span><br>
+                    <strong>
+                        Telefono:
+                    </strong> 
+                    {{ $supplier->telefono }}<br> 
+                    <strong>
+                        Mail:
+                    </strong>
+                    {{ $supplier->pec }}
                 </div>
                 <div class="col-sm d-flex justify-content-end">
                     <span style="text-align: right;">
-                        <a href="{{ route('customers.edit', $customer->id) }}" class="btn btn" style="margin-bottom: 5px; width: 80px;">
+                        <a href="{{ route('suppliers.edit', $supplier->id) }}" class="btn btn" style="margin-bottom: 5px; width: 80px;">
                             <!-- SVG per modifica -->
                             Modifica
                         </a><br>
-                        <button class="btn btn" style="margin-bottom: 5px; width: 80px;" data-bs-toggle="modal" data-bs-target="#customerModal{{ $customer->id }}">
+                        <button class="btn btn" style="margin-bottom: 5px; width: 80px;" data-bs-toggle="modal" data-bs-target="#supplierModal{{ $supplier->id }}">
                             <!-- SVG per elimina -->
                             Elimina
                         </button>

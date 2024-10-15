@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Laravel</title>
 
         <!-- Bootstrap CSS -->
@@ -56,7 +55,6 @@
         </div>
 
         <!-- Lista ordini -->
-        
         @if (session('orderDeleted'))
             <div class="container success" style="margin-top: 40px; color: #155724; background-color: #d4edda; border-color: #c3e6cb;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
@@ -74,29 +72,8 @@
             <hr>
             @foreach ($orders as $order)
 
-            
-
-            <div class="row">
-                <div class="col-sm">
-                    <span style="background-color: #172A46; color: white; border-radius: 5px; padding: 5px;"><strong>Data</strong>: {{ \Carbon\Carbon::parse($order->data)->format('d/m/Y') }}</span><br>
-                    <strong>Cliente</strong>: {{ \App\Models\Customers::find($order->id_cliente)->ragione_sociale }} <br> 
-                    <strong>Fornitore</strong>: {{ \App\Models\Suppliers::find($order->id_fornitore)->ditta }}
-                </div>
-                <div class="col-sm d-flex justify-content-end">
-                    <span style="text-align: right;">
-                        <a href="{{ route('orders.edit', $order->id) }}" class="btn btn" style="margin-bottom: 5px; width: 80px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/></svg>
-                            Modifica
-                        </a><br>
-                        <button class="btn btn" style="margin-bottom: 5px; width: 80px;" data-bs-toggle="modal" data-bs-target="#orderModal">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/></svg>
-                            Elimina
-                        </button>
-                    </span>
-                </div>
-            </div>
             <!-- Modal -->
-            <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="orderModal{{ $order->id }}">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -117,6 +94,26 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <span style="background-color: #172A46; color: white; border-radius: 5px; padding: 5px;"><strong>Data</strong>: {{ \Carbon\Carbon::parse($order->data)->format('d/m/Y') }}</span><br>
+                    <strong>Cliente</strong>: {{ \App\Models\Customers::find($order->id_cliente)->ragione_sociale }} <br> 
+                    <strong>Fornitore</strong>: {{ \App\Models\Suppliers::find($order->id_fornitore)->ditta }}
+                </div>
+                <div class="col-sm d-flex justify-content-end">
+                    <span style="text-align: right;">
+                        <a href="{{ route('orders.edit', $order->id) }}" class="btn btn" style="margin-bottom: 5px; width: 80px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/></svg>
+                            Modifica
+                        </a><br>
+                        <button class="btn btn" style="margin-bottom: 5px; width: 80px;" data-bs-toggle="modal" data-bs-target="#orderModal{{ $order->id }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/></svg>
+                            Elimina
+                        </button>
+                    </span>
+                </div>
+            </div>            
             @endforeach
             <hr>
         </div>
