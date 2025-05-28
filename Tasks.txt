@@ -1,0 +1,38 @@
+• Ordini
+Visualizzazione ✔
+Filtraggio ✔
+Aggiunta ✔
+Modifica ✔
+Eliminazione ✔
+
+• Clienti
+Visualizzazione ✔
+Filtraggio ✔
+Aggiunta ✔
+Modifica ✔
+Eliminazione ✔
+
+Fornitori
+Filtraggio ✔ 
+Visualizzazione ✔
+Aggiunta ✔
+Modifica ✔
+Eliminazione ✔
+
+Altre posizioni Fornitori
+Aggiunta ✔
+Modifica ✔
+Eliminazione ✔
+
+• Visite TO DO!
+Filtraggio ✔
+Visualizzazione ✔
+Aggiunta ✔
+Modifica ✔
+Eliminazione ✔
+
+Cosa manca:
+
+Controlalre le altre posizioni Fornitori
+
+Implementare Telefoni, Mail e collaboratori per i clienti

@@ -100,8 +100,6 @@ class OrdersController extends Controller
     {
         $order = Orders::find($id);
         
-        $order->update($request->all());
-        
         $order->data = $request->input('data');
         $order->id_cliente = $request->input('cliente');
         $order->id_fornitore = $request->input('fornitore');

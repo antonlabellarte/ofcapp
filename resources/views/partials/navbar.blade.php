@@ -12,9 +12,9 @@
                 <li class="nav-item">
                     <a href="{{ route('orders.index') }}" class="nav-link text-dark" id="navBtn" style="color: black">ORDINI</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link text-dark" id="navBtn" style="color: black">PREVENTIVI</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{ route('customers.index') }}" class="nav-link text-dark" id="navBtn" style="color: black">CLIENTI</a>
                 </li>
@@ -22,7 +22,7 @@
                     <a href="{{ route('suppliers.index') }}" class="nav-link text-dark" id="navBtn" style="color: black">FORNITORI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" id="navBtn" style="color: black">AGENTI E VISITE</a>
+                    <a href="{{ route('visits.index') }}" class="nav-link text-dark" id="navBtn" style="color: black">AGENTI E VISITE</a>
                 </li>
             </ul>
         </div>
@@ -39,5 +39,5 @@
 
     a {
     font-weight: bold;
-}
+    }
 </style>
