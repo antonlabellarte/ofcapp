@@ -15,8 +15,3 @@ The **ofcApp** provides a simple yet effective environment to manage:
 - 📊 **Reports/Demo** – explore app workflows even without running the project.  
 
 If you cannot launch the project locally, a **demo PDF** is available inside the repository.
-
----
-
-## 📂 Repository Structure
-
