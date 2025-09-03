@@ -1,8 +1,22 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📦 ofcApp
 
-## OFC APP
+App that delivers **management of orders, customers and suppliers**.  
+This project is inspired by a real case study, but **no real data or design elements** are directly tied to the original system.
 
-This is a replica of an existing real <b>low-code</b> project entirely created with MS Power apps as a UI and SharePoint as a data origin.
-This app goal is to deliver to an enteprises the chance to manage their orders, suppliers and customers.
+---
 
-<h3>Every data you could find <b>ARE NOT</b> real data from any type of customers or enterprise</h3>
+## 🚀 Overview
+
+The **ofcApp** provides a simple yet effective environment to manage:
+
+- 🧑‍🤝‍🧑 **Customers** – register and organize customer data.  
+- 🏢 **Suppliers** – maintain supplier records and relationships.  
+- 📦 **Orders** – create, track and manage orders across customers and suppliers.  
+- 📊 **Reports/Demo** – explore app workflows even without running the project.  
+
+If you cannot launch the project locally, a **demo PDF** is available inside the repository.
+
+---
+
+## 📂 Repository Structure
+
